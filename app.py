@@ -105,6 +105,16 @@ st.markdown("""
     /* Hide Streamlit elements */
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
+
+    /* Brighten caption text */
+    .stCaption, [data-testid="stCaptionContainer"] {
+        color: #c0c0d0 !important;
+    }
+
+    /* Brighten metric labels */
+    [data-testid="stMetricLabel"] {
+        color: #b0b0c0 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
