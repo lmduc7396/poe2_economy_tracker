@@ -106,34 +106,37 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
 
-    /* Force all text to be light colored */
-    .stCaption, [data-testid="stCaptionContainer"],
-    [data-testid="stCaptionContainer"] p,
-    [data-testid="stCaptionContainer"] span {
-        color: #e0e0e0 !important;
+    /* GLOBAL: Force ALL text to be light */
+    .stApp, .stApp * {
+        color: #e8e8e8 !important;
     }
 
-    /* Brighten metric labels and values */
-    [data-testid="stMetricLabel"],
-    [data-testid="stMetricLabel"] p,
-    [data-testid="stMetricValue"],
-    [data-testid="stMetricValue"] div {
-        color: #e0e0e0 !important;
-    }
-
-    /* Force all paragraph and span text light */
-    .main p, .main span, .main div {
-        color: #e0e0e0 !important;
-    }
-
-    /* Keep colored elements */
-    [data-testid="stMetricDelta"] span {
-        color: inherit !important;
-    }
-
-    /* Headers stay gold/yellow */
-    h1, h2, h3 {
+    /* Headers gold/yellow */
+    h1, h2, h3, .stApp h1, .stApp h2, .stApp h3 {
         color: #fbbf24 !important;
+    }
+
+    /* Green for positive changes */
+    [data-testid="stMetricDelta"][data-testid-direction="up"],
+    [data-testid="stMetricDelta"][data-testid-direction="up"] * {
+        color: #4ade80 !important;
+    }
+
+    /* Red for negative changes */
+    [data-testid="stMetricDelta"][data-testid-direction="down"],
+    [data-testid="stMetricDelta"][data-testid-direction="down"] * {
+        color: #f87171 !important;
+    }
+
+    /* Sidebar text */
+    section[data-testid="stSidebar"],
+    section[data-testid="stSidebar"] * {
+        color: #e8e8e8 !important;
+    }
+
+    /* Keep button/tag colors */
+    .stMultiSelect span[data-baseweb="tag"] {
+        color: white !important;
     }
 </style>
 """, unsafe_allow_html=True)
