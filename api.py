@@ -374,12 +374,12 @@ def get_falling_items(items: list[dict], limit: int = 10) -> list[dict]:
 def calculate_farming_method_profitability(items: list[dict]) -> list[dict]:
     """
     Calculate profitability ranking for each farming method.
-    Uses weighted average profit score of ALL items in each method.
+    Uses sum of profit scores of ALL items in each method.
 
     Returns list of dicts sorted by profitability score descending:
     {
         "method": str,
-        "profitability_score": float,  # Avg profit score of all items
+        "profitability_score": float,  # Sum of profit scores of all items
         "rising_items": int,  # Count of items with positive change
         "total_items": int,
         "avg_change_pct": float,
@@ -423,15 +423,15 @@ def calculate_farming_method_profitability(items: list[dict]) -> list[dict]:
         # Sort by profit score to find top item
         items_list.sort(key=lambda x: x["profit_score"], reverse=True)
 
-        # Calculate average profit score of ALL items in this method
-        avg_profit_score = stats["total_profit_score"] / total_items
+        # Sum of all profit scores in this method
+        total_profit_score = stats["total_profit_score"]
 
         # Get best item (list is sorted by profit_score descending)
         top_item = items_list[0] if items_list else None
 
         results.append({
             "method": method,
-            "profitability_score": round(avg_profit_score, 2),
+            "profitability_score": round(total_profit_score, 2),
             "rising_items": stats["rising_count"],
             "total_items": total_items,
             "avg_change_pct": round(stats["total_change"] / total_items, 2),
