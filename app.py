@@ -106,14 +106,34 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
 
-    /* Brighten caption text */
-    .stCaption, [data-testid="stCaptionContainer"] {
-        color: #c0c0d0 !important;
+    /* Force all text to be light colored */
+    .stCaption, [data-testid="stCaptionContainer"],
+    [data-testid="stCaptionContainer"] p,
+    [data-testid="stCaptionContainer"] span {
+        color: #e0e0e0 !important;
     }
 
-    /* Brighten metric labels */
-    [data-testid="stMetricLabel"] {
-        color: #b0b0c0 !important;
+    /* Brighten metric labels and values */
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricLabel"] p,
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricValue"] div {
+        color: #e0e0e0 !important;
+    }
+
+    /* Force all paragraph and span text light */
+    .main p, .main span, .main div {
+        color: #e0e0e0 !important;
+    }
+
+    /* Keep colored elements */
+    [data-testid="stMetricDelta"] span {
+        color: inherit !important;
+    }
+
+    /* Headers stay gold/yellow */
+    h1, h2, h3 {
+        color: #fbbf24 !important;
     }
 </style>
 """, unsafe_allow_html=True)
