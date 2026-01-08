@@ -340,10 +340,10 @@ def main():
                 <div style="background: linear-gradient(145deg, #1e1e3f 0%, #252550 100%);
                             border-radius: 12px; padding: 16px; border: 1px solid #3a3a5c;
                             text-align: center; margin-bottom: 8px;">
-                    <div style="font-size: 24px;">{rank_emoji}</div>
+                    <div style="font-size: 24px; color: #fff;">{rank_emoji}</div>
                     <div style="font-size: 16px; font-weight: 600; color: {ranking['color']};">{ranking['method']}</div>
                     <div style="font-size: 24px; font-weight: 700; color: #4ade80;">+{ranking['profitability_score']:.0f}</div>
-                    <div style="font-size: 11px; color: #8b8ba7;">Profit Score</div>
+                    <div style="font-size: 11px; color: #b8b8d0;">Profit Score</div>
                 </div>
                 """, unsafe_allow_html=True)
 
