@@ -106,8 +106,8 @@ st.markdown("""
     #MainMenu {visibility: hidden;}
     footer {visibility: hidden;}
 
-    /* GLOBAL: Force ALL text to be light */
-    .stApp, .stApp * {
+    /* GLOBAL: Force text to be light (except inputs) */
+    .stApp p, .stApp span, .stApp label, .stApp div:not([data-baseweb]) {
         color: #e8e8e8 !important;
     }
 
@@ -129,14 +129,24 @@ st.markdown("""
     }
 
     /* Sidebar text */
-    section[data-testid="stSidebar"],
-    section[data-testid="stSidebar"] * {
+    section[data-testid="stSidebar"] p,
+    section[data-testid="stSidebar"] span,
+    section[data-testid="stSidebar"] label {
         color: #e8e8e8 !important;
     }
 
     /* Keep button/tag colors */
     .stMultiSelect span[data-baseweb="tag"] {
         color: white !important;
+    }
+
+    /* Dark input backgrounds */
+    [data-baseweb="select"], [data-baseweb="input"] {
+        background-color: #1e1e3f !important;
+    }
+    [data-baseweb="select"] div, [data-baseweb="popover"] {
+        background-color: #1e1e3f !important;
+        color: #e8e8e8 !important;
     }
 </style>
 """, unsafe_allow_html=True)
